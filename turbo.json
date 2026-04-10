@@ -1,0 +1,83 @@
+{
+  "$schema": "https://turbo.build/json-schema.json",
+  "globalDependencies": [
+    "**/.env.local",
+    "**/.env"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**",
+        "build/**"
+      ],
+      "cache": true
+    },
+    "test": {
+      "outputs": [
+        "coverage/**"
+      ],
+      "cache": false,
+      "dependsOn": []
+    },
+    "test:coverage": {
+      "outputs": [
+        "coverage/**"
+      ],
+      "cache": false,
+      "dependsOn": []
+    },
+    "test:e2e": {
+      "cache": false,
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "lint": {
+      "outputs": [
+        "lint-results/**"
+      ],
+      "cache": true
+    },
+    "lint:fix": {
+      "cache": false,
+      "dependsOn": []
+    },
+    "format": {
+      "cache": false,
+      "dependsOn": []
+    },
+    "format:check": {
+      "cache": true
+    },
+    "type-check": {
+      "cache": true,
+      "dependsOn": []
+    },
+    "dev": {
+      "cache": false,
+      "dependsOn": [],
+      "persistent": true
+    },
+    "clean": {
+      "cache": false
+    },
+    "db:migrate": {
+      "cache": false,
+      "dependsOn": []
+    },
+    "db:seed": {
+      "cache": false,
+      "dependsOn": [
+        "db:migrate"
+      ]
+    },
+    "deps:check": {
+      "cache": false,
+      "dependsOn": []
+    }
+  }
+}

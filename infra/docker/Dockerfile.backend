@@ -1,0 +1,28 @@
+# Multi-stage build for Backend
+FROM node:20-alpine AS backend-builder
+WORKDIR /app
+
+# Copy monorepo files
+COPY package.json pnpm-lock.yaml ./
+COPY apps/backend ./apps/backend
+COPY packages ./packages
+
+# Build backend
+RUN npm install --frozen-lockfile
+RUN npm run build --filter=@stellar-vault/backend
+
+# Production backend image
+FROM node:20-alpine AS backend
+WORKDIR /app
+
+# Install production dependencies
+COPY package.json pnpm-lock.yaml ./
+COPY apps/backend ./apps/backend
+COPY packages ./packages
+
+RUN npm install --frozen-lockfile --production
+COPY --from=backend-builder /app/apps/backend/dist ./apps/backend/dist
+
+EXPOSE 3001
+ENV NODE_ENV=production
+CMD ["node", "apps/backend/dist/main.js"]

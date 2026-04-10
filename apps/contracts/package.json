@@ -1,0 +1,21 @@
+{
+  "name": "@stellar-vault/contracts",
+  "version": "0.1.0",
+  "description": "Soroban smart contracts for StellarVault",
+  "private": true,
+  "scripts": {
+    "build": "soroban contract build",
+    "build:optimized": "soroban contract build --release",
+    "build:all": "npm run build && npm run build:optimized",
+    "test": "cargo test",
+    "test:coverage": "cargo tarpaulin --out Html",
+    "format": "cargo fmt --all",
+    "format:check": "cargo fmt --all -- --check",
+    "lint": "cargo clippy --all-targets --all-features -- -D warnings",
+    "publish:testnet": "soroban contract deploy --network testnet",
+    "publish:mainnet": "soroban contract deploy --network mainnet"
+  },
+  "devDependencies": {
+    "soroban-cli": "^20.0.0"
+  }
+}

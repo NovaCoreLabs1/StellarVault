@@ -1,0 +1,6891 @@
+[
+  {
+    "number": 1,
+    "title": "Initialize monorepo with Turborepo",
+    "description": "Set up Turborepo configuration with proper workspace definitions and task pipelines",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "setup",
+      "infrastructure"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "turbo.json configured with all workspaces",
+      "Task pipelines defined (build, test, lint, etc)",
+      "Cache configuration optimized",
+      "Local development works without issues"
+    ]
+  },
+  {
+    "number": 2,
+    "title": "Setup TypeScript configurations",
+    "description": "Configure TypeScript with strict mode, proper aliases, and monorepo paths",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "setup",
+      "typescript"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Root tsconfig.json with base configuration",
+      "Workspace-specific tsconfig files",
+      "Path aliases working correctly",
+      "Type checking passes for all packages"
+    ]
+  },
+  {
+    "number": 3,
+    "title": "Configure ESLint for monorepo",
+    "description": "Set up ESLint with shared configuration across all packages",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "linting",
+      "code-quality"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Shared ESLint config in packages/config",
+      "All packages inherit from base config",
+      "Type-aware rules enabled",
+      "npm run lint works across monorepo"
+    ]
+  },
+  {
+    "number": 4,
+    "title": "Setup Prettier code formatting",
+    "description": "Configure Prettier with consistent formatting rules for entire project",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "code-quality",
+      "formatting"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Prettier config in root .prettierrc.json",
+      "npm run format applies to all packages",
+      "Formatting consistent across all files",
+      "Pre-commit hooks integrated"
+    ]
+  },
+  {
+    "number": 5,
+    "title": "Setup environment variable management",
+    "description": "Create .env templates and configuration management system",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "config",
+      "security"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      ".env.example with all required variables",
+      "Separate configs for dev, test, prod",
+      "Type-safe environment variables",
+      "Validation on app startup"
+    ]
+  },
+  {
+    "number": 6,
+    "title": "Setup Docker for frontend",
+    "description": "Create Dockerfile for Next.js application with multi-stage builds",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "docker",
+      "deployment"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Multi-stage Dockerfile optimized for production",
+      "Development and production builds work",
+      "Image size optimized",
+      "Health checks configured"
+    ]
+  },
+  {
+    "number": 7,
+    "title": "Setup Docker for backend",
+    "description": "Create Dockerfile for NestJS application with proper dependencies",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "docker",
+      "deployment"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Multi-stage Dockerfile for NestJS",
+      "Production dependencies optimized",
+      "Runtime configuration working",
+      "Logging configured"
+    ]
+  },
+  {
+    "number": 8,
+    "title": "Setup Docker Compose for local development",
+    "description": "Configure docker-compose.yml with all services (frontend, backend, postgres, redis)",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "docker",
+      "local-development"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "docker-compose.yml with frontend, backend, postgres, redis",
+      "Volumes configured for development",
+      "Health checks for each service",
+      "npm run dev works with Docker"
+    ]
+  },
+  {
+    "number": 9,
+    "title": "Setup GitHub Actions CI pipeline",
+    "description": "Create CI/CD pipeline for linting, testing, and building",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "ci-cd",
+      "github-actions"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Lint step runs on all pull requests",
+      "Tests run and report coverage",
+      "Build step verifies all packages",
+      "Artifacts uploaded for debugging",
+      "Pipeline succeeds before merge"
+    ]
+  },
+  {
+    "number": 10,
+    "title": "Setup GitHub Actions deployment pipeline",
+    "description": "Create CD pipeline for deploying to staging and production",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "ci-cd",
+      "deployment"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Deployment triggered on main branch push",
+      "Docker images built and pushed to registry",
+      "Secrets properly configured",
+      "Rollback strategy defined"
+    ]
+  },
+  {
+    "number": 11,
+    "title": "Setup Git hooks for code quality",
+    "description": "Configure Husky and lint-staged for pre-commit hooks",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "code-quality",
+      "git"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Husky configured for pre-commit",
+      "Lint-staged runs ESLint and Prettier",
+      "Commit blocked if linting fails",
+      "Works on all development machines"
+    ]
+  },
+  {
+    "number": 12,
+    "title": "Setup development database",
+    "description": "Configure PostgreSQL for local development with Docker",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "database",
+      "setup"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "PostgreSQL service in docker-compose",
+      "Database created and accessible",
+      "Migrations run on startup",
+      "Seed data available for testing"
+    ]
+  },
+  {
+    "number": 13,
+    "title": "Setup Redis for caching",
+    "description": "Configure Redis service for caching and session management",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "redis",
+      "caching"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Redis service configured in docker-compose",
+      "Connection pooling configured",
+      "Health checks working",
+      "TTL policies defined"
+    ]
+  },
+  {
+    "number": 14,
+    "title": "Setup project documentation structure",
+    "description": "Create comprehensive documentation with architecture, API specs, and guides",
+    "category": "Setup & DevOps",
+    "labels": [
+      "documentation",
+      "setup"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "docs/ folder with architecture.md",
+      "API specification complete",
+      "Smart contract documentation",
+      "Development guide for contributors"
+    ]
+  },
+  {
+    "number": 15,
+    "title": "Create project LICENSE",
+    "description": "Add MIT license to the project",
+    "category": "Setup & DevOps",
+    "labels": [
+      "admin",
+      "setup"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "LICENSE file in repository root",
+      "License headers in source files",
+      "SPDX identifier in package.json"
+    ]
+  },
+  {
+    "number": 16,
+    "title": "Setup frontend development environment",
+    "description": "Configure Next.js development environment with hot reload and debugging",
+    "category": "Setup & DevOps",
+    "labels": [
+      "frontend",
+      "setup",
+      "development"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "next.config.js configured",
+      "Hot module reloading working",
+      "Source maps for debugging",
+      "Environment variables injected"
+    ]
+  },
+  {
+    "number": 17,
+    "title": "Setup backend development environment",
+    "description": "Configure NestJS development with hot reload and debugging",
+    "category": "Setup & DevOps",
+    "labels": [
+      "backend",
+      "setup",
+      "development"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "NestJS dev server with watch mode",
+      "Source maps configured",
+      "Debug mode available",
+      "Database migrations on startup"
+    ]
+  },
+  {
+    "number": 18,
+    "title": "Setup Soroban development environment",
+    "description": "Configure Rust/Soroban toolchain for smart contract development",
+    "category": "Setup & DevOps",
+    "labels": [
+      "contracts",
+      "setup",
+      "development"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Rust toolchain configured",
+      "Soroban CLI installed and working",
+      "Contract build process working",
+      "Test environment set up"
+    ]
+  },
+  {
+    "number": 19,
+    "title": "Setup logging infrastructure",
+    "description": "Configure structured logging for frontend and backend",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "logging",
+      "observability"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Winston configured for backend logging",
+      "Log levels (debug, info, warn, error) working",
+      "Frontend error tracking configured",
+      "Logs can be aggregated centrally"
+    ]
+  },
+  {
+    "number": 20,
+    "title": "Setup monitoring and alerts",
+    "description": "Configure basic monitoring and alerting system",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "monitoring",
+      "observability"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Health check endpoints configured",
+      "Metrics collection set up",
+      "Alerts configured for critical errors",
+      "Dashboard for monitoring"
+    ]
+  },
+  {
+    "number": 21,
+    "title": "Create CONTRIBUTING guide",
+    "description": "Document contribution guidelines and development workflow",
+    "category": "Setup & DevOps",
+    "labels": [
+      "documentation",
+      "community"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "CONTRIBUTING.md with clear guidelines",
+      "Code style requirements documented",
+      "PR process explained",
+      "Link to code of conduct"
+    ]
+  },
+  {
+    "number": 22,
+    "title": "Create CODE_OF_CONDUCT",
+    "description": "Establish code of conduct for community interactions",
+    "category": "Setup & DevOps",
+    "labels": [
+      "community",
+      "admin"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "CODE_OF_CONDUCT.md created",
+      "Referenced in README and CONTRIBUTING",
+      "Clear guidelines for respectful interaction"
+    ]
+  },
+  {
+    "number": 23,
+    "title": "Setup package.json workspaces",
+    "description": "Configure npm workspaces for monorepo management",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "setup"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Root package.json declares all workspaces",
+      "npm install installs all dependencies",
+      "Cross-workspace imports working",
+      "Dependency validation passing"
+    ]
+  },
+  {
+    "number": 24,
+    "title": "Setup dependency version management",
+    "description": "Establish strategy for managing dependency versions across monorepo",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "dependencies"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Shared dependencies defined in root",
+      "Version conflicts resolved",
+      "npm audit passes",
+      "Upgrade strategy documented"
+    ]
+  },
+  {
+    "number": 25,
+    "title": "Create security scanning workflow",
+    "description": "Setup automated security scanning for dependencies and code",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "security",
+      "ci-cd"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Dependency vulnerability scanning enabled",
+      "Code security scanning configured",
+      "Results reported in PR checks",
+      "Security issues block merging"
+    ]
+  },
+  {
+    "number": 26,
+    "title": "Create performance benchmarking setup",
+    "description": "Setup tools and processes for performance testing",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "performance",
+      "testing"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Benchmark tests defined",
+      "Performance metrics tracked",
+      "Regressions detected automatically",
+      "Dashboard for viewing trends"
+    ]
+  },
+  {
+    "number": 27,
+    "title": "Setup release management process",
+    "description": "Configure automated versioning and release workflow",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "release"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Semantic versioning enforced",
+      "Changelog auto-generated",
+      "Git tags created on release",
+      "Release notes published"
+    ]
+  },
+  {
+    "number": 28,
+    "title": "Create emergency incident response plan",
+    "description": "Document procedures for handling production incidents",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "operations"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Incident response guide documented",
+      "Escalation procedures defined",
+      "Rollback procedures tested",
+      "Communication plan established"
+    ]
+  },
+  {
+    "number": 29,
+    "title": "Setup backup and disaster recovery",
+    "description": "Configure automated backups and disaster recovery procedures",
+    "category": "Setup & DevOps",
+    "labels": [
+      "devops",
+      "operations",
+      "security"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Database backups automated",
+      "Recovery time objective (RTO) defined",
+      "Disaster recovery drill scheduled",
+      "Backup storage redundant"
+    ]
+  },
+  {
+    "number": 30,
+    "title": "Create project roadmap",
+    "description": "Document project roadmap and vision for major phases",
+    "category": "Setup & DevOps",
+    "labels": [
+      "documentation",
+      "planning"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Roadmap.md with phases",
+      "Major milestones defined",
+      "Timeline estimated",
+      "Team alignment on priorities"
+    ]
+  },
+  {
+    "number": 31,
+    "title": "Create User model and schema",
+    "description": "Define User database schema with email, password, profile fields",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "database",
+      "auth"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "User entity with email, password, profile fields",
+      "Email uniqueness constraint",
+      "Password hashing with bcrypt",
+      "Timestamps for created/updated"
+    ]
+  },
+  {
+    "number": 32,
+    "title": "Implement user registration endpoint",
+    "description": "Create POST /auth/register endpoint with validation",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "api",
+      "auth"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Email validation on format",
+      "Password strength validation",
+      "Password confirmation matching",
+      "Error handling for duplicate email",
+      "Returns new user profile"
+    ]
+  },
+  {
+    "number": 33,
+    "title": "Implement user login endpoint",
+    "description": "Create POST /auth/login endpoint with JWT generation",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "api",
+      "auth",
+      "jwt"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Email/password validation",
+      "JWT token generation",
+      "Refresh token generation",
+      "Expiration times configured",
+      "Secure cookie setup (if applicable)"
+    ]
+  },
+  {
+    "number": 34,
+    "title": "Implement JWT token refresh endpoint",
+    "description": "Create POST /auth/refresh endpoint for token renewal",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "api",
+      "auth",
+      "jwt"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Validates refresh token",
+      "Issues new access token",
+      "Maintains session data",
+      "Prevents token reuse"
+    ]
+  },
+  {
+    "number": 35,
+    "title": "Implement logout endpoint",
+    "description": "Create POST /auth/logout endpoint for token invalidation",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "api",
+      "auth"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Invalidates refresh token",
+      "Clears session data",
+      "Returns 200 success"
+    ]
+  },
+  {
+    "number": 36,
+    "title": "Setup JWT authentication guards",
+    "description": "Create NestJS JWT guards for route protection",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "security",
+      "auth"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "JWT guard validates tokens",
+      "Handles expired tokens",
+      "Returns 401 for missing/invalid tokens",
+      "Extracts user from token"
+    ]
+  },
+  {
+    "number": 37,
+    "title": "Implement email verification",
+    "description": "Add email verification flow with confirmation links",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "auth",
+      "email"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Verification email sent on signup",
+      "Confirmation link validates email",
+      "Prevents login before verification",
+      "Token expires after 24 hours"
+    ]
+  },
+  {
+    "number": 38,
+    "title": "Implement password reset flow",
+    "description": "Create forgot password and password reset functionality",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "auth",
+      "email"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Password reset email sent",
+      "Reset link valid for 1 hour",
+      "New password validated",
+      "Old password invalidated"
+    ]
+  },
+  {
+    "number": 39,
+    "title": "Implement role-based access control (RBAC)",
+    "description": "Add role and permission system for different user types",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "auth",
+      "security"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "User roles (admin, user, guest)",
+      "Permission mapping to roles",
+      "Guards check permissions",
+      "Admin endpoints protected"
+    ]
+  },
+  {
+    "number": 40,
+    "title": "Implement two-factor authentication (2FA)",
+    "description": "Add optional 2FA using TOTP for enhanced security",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "auth",
+      "security"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "TOTP setup endpoint",
+      "QR code generation",
+      "Verification on login",
+      "Backup codes generated"
+    ]
+  },
+  {
+    "number": 41,
+    "title": "Create user profile endpoint",
+    "description": "Implement GET /users/me for retrieving user profile",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "api",
+      "user"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Returns authenticated user profile",
+      "Includes user preferences",
+      "Response cached appropriately"
+    ]
+  },
+  {
+    "number": 42,
+    "title": "Implement profile update endpoint",
+    "description": "Create PUT /users/me for updating user profile",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "api",
+      "user"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Updates first/last name",
+      "Updates profile picture",
+      "Validates input",
+      "Returns updated profile"
+    ]
+  },
+  {
+    "number": 43,
+    "title": "Implement profile picture upload",
+    "description": "Add file upload for user profile pictures with image optimization",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "storage",
+      "user"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "File upload to storage service",
+      "Image resizing and optimization",
+      "URL stored in database",
+      "Old image cleaned up"
+    ]
+  },
+  {
+    "number": 44,
+    "title": "Implement user account deletion",
+    "description": "Create endpoint for user to delete their account",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "user",
+      "security"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Requires password confirmation",
+      "Deletes user data (GDPR compliant)",
+      "Invalidates all tokens",
+      "Sends confirmation email"
+    ]
+  },
+  {
+    "number": 45,
+    "title": "Create session management system",
+    "description": "Implement session tracking and management",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "auth",
+      "security"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Sessions tracked in database",
+      "Device information stored",
+      "Session expiration enforced",
+      "Multiple sessions per user allowed"
+    ]
+  },
+  {
+    "number": 46,
+    "title": "Implement device management",
+    "description": "Add ability to view and manage trusted devices",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "security",
+      "user"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "List all active devices/sessions",
+      "Logout from specific device",
+      "Logout from all devices",
+      "Device fingerprinting for tracking"
+    ]
+  },
+  {
+    "number": 47,
+    "title": "Implement login activity log",
+    "description": "Track and display user login history",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "security",
+      "logging"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Login events stored with timestamp",
+      "IP address and device recorded",
+      "Suspicious activity detection",
+      "User can view login history"
+    ]
+  },
+  {
+    "number": 48,
+    "title": "Implement rate limiting on auth endpoints",
+    "description": "Add rate limiting to prevent brute force attacks",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "security"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Login endpoint rate limited",
+      "Registration endpoint rate limited",
+      "Increasing delays on failed attempts",
+      "IP-based and user-based limits"
+    ]
+  },
+  {
+    "number": 49,
+    "title": "Implement account lockout protection",
+    "description": "Lock account after multiple failed login attempts",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "security"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Account locked after 5 failed attempts",
+      "Unlock email sent to user",
+      "Time-based unlock (30 minutes)",
+      "Admin can manually unlock"
+    ]
+  },
+  {
+    "number": 50,
+    "title": "Implement OAuth 2.0 support",
+    "description": "Add OAuth 2.0 authentication with popular providers",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "auth",
+      "third-party"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Google OAuth integration",
+      "GitHub OAuth integration",
+      "User info mapped to profile",
+      "Account linking for existing users"
+    ]
+  },
+  {
+    "number": 51,
+    "title": "Create password strength validator",
+    "description": "Implement password strength checking and requirements",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "security",
+      "validation"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Minimum 8 characters",
+      "Mix of uppercase, lowercase, numbers, special chars",
+      "Not common passwords",
+      "User information not in password"
+    ]
+  },
+  {
+    "number": 52,
+    "title": "Implement user preferences system",
+    "description": "Create system for storing user preferences and settings",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "database",
+      "user"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "User preferences stored per user",
+      "Update preferences endpoint",
+      "Get preferences endpoint",
+      "Defaults defined for new users"
+    ]
+  },
+  {
+    "number": 53,
+    "title": "Implement notification preferences",
+    "description": "Allow users to configure notification settings",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "notifications",
+      "user"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Email notification preferences",
+      "Push notification preferences",
+      "Notification types configurable",
+      "Frequency settings (daily digest, etc)"
+    ]
+  },
+  {
+    "number": 54,
+    "title": "Create user profile validation",
+    "description": "Implement comprehensive validation for profile fields",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "validation",
+      "user"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Email format validation",
+      "Name length validation",
+      "Special characters handled",
+      "XSS prevention"
+    ]
+  },
+  {
+    "number": 55,
+    "title": "Implement audit logging for auth events",
+    "description": "Log all authentication-related events for security audit",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "security",
+      "logging"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Login/logout events logged",
+      "Password change events logged",
+      "Permission changes logged",
+      "Admin access logged"
+    ]
+  },
+  {
+    "number": 56,
+    "title": "Create authentication middleware",
+    "description": "Implement NestJS middleware for authentication checks",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "auth"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Authenticates requests",
+      "Extracts user from token",
+      "Passes to next middleware",
+      "Handles errors gracefully"
+    ]
+  },
+  {
+    "number": 57,
+    "title": "Implement user search and directory",
+    "description": "Add ability to search for users (for admin purposes)",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "api",
+      "admin"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Search by email, name",
+      "Paginated results",
+      "Admin-only access",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 58,
+    "title": "Create user activity dashboard",
+    "description": "Backend endpoint for user activity statistics",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "api",
+      "analytics"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Active users count",
+      "Recently active users",
+      "Login frequency stats",
+      "Account creation trends"
+    ]
+  },
+  {
+    "number": 59,
+    "title": "Implement user ban/suspension system",
+    "description": "Add admin capability to ban or suspend users",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "admin",
+      "security"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Ban user endpoint",
+      "Suspend user endpoint",
+      "Ban reason stored",
+      "Banned users cannot login"
+    ]
+  },
+  {
+    "number": 60,
+    "title": "Create user onboarding flow",
+    "description": "Design backend endpoints to support onboarding process",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "user"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Welcome email sent",
+      "Setup wizard state stored",
+      "Skip onboarding option",
+      "Track completion"
+    ]
+  },
+  {
+    "number": 61,
+    "title": "Implement data export functionality",
+    "description": "Allow users to export their data in standard formats",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "user",
+      "privacy"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Export to JSON format",
+      "Export to CSV format",
+      "Includes all user data",
+      "GDPR compliant"
+    ]
+  },
+  {
+    "number": 62,
+    "title": "Setup authentication integration tests",
+    "description": "Write comprehensive tests for auth workflows",
+    "category": "Authentication & User Management",
+    "labels": [
+      "testing",
+      "auth",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Registration flow tested",
+      "Login/logout tested",
+      "Token refresh tested",
+      "Error scenarios covered",
+      "80%+ coverage"
+    ]
+  },
+  {
+    "number": 63,
+    "title": "Implement authentication error tracking",
+    "description": "Track and alert on authentication errors",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "security",
+      "monitoring"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Failed login attempts tracked",
+      "Unusual patterns detected",
+      "Alerts for repeated failures",
+      "Admin dashboard shows stats"
+    ]
+  },
+  {
+    "number": 64,
+    "title": "Create JWT token blacklist system",
+    "description": "Implement token blacklist for revoked tokens",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "security",
+      "auth"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Tokens can be manually revoked",
+      "Blacklist checked on validation",
+      "Expired blacklist entries cleaned",
+      "Redis used for performance"
+    ]
+  },
+  {
+    "number": 65,
+    "title": "Implement CSRF protection",
+    "description": "Add CSRF token validation to state-changing endpoints",
+    "category": "Authentication & User Management",
+    "labels": [
+      "backend",
+      "security"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "CSRF tokens generated",
+      "Tokens validated on POST/PUT/DELETE",
+      "Tokens renewed after use",
+      "Tokens SameSite compliant"
+    ]
+  },
+  {
+    "number": 66,
+    "title": "Setup Freighter wallet integration",
+    "description": "Implement setup freighter wallet integration for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Setup Freighter wallet integration functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 67,
+    "title": "Implement Ledger hardware wallet support",
+    "description": "Implement implement ledger hardware wallet support for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement Ledger hardware wallet support functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 68,
+    "title": "Add Trezor wallet support",
+    "description": "Implement add trezor wallet support for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Add Trezor wallet support functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 69,
+    "title": "Create wallet detection logic",
+    "description": "Implement create wallet detection logic for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create wallet detection logic functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 70,
+    "title": "Implement transaction signing",
+    "description": "Implement implement transaction signing for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement transaction signing functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 71,
+    "title": "Create wallet connection UI",
+    "description": "Implement create wallet connection ui for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create wallet connection UI functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 72,
+    "title": "Add wallet balance fetching",
+    "description": "Implement add wallet balance fetching for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add wallet balance fetching functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 73,
+    "title": "Implement asset listing",
+    "description": "Implement implement asset listing for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement asset listing functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 74,
+    "title": "Create wallet switching functionality",
+    "description": "Implement create wallet switching functionality for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create wallet switching functionality functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 75,
+    "title": "Add wallet account management",
+    "description": "Implement add wallet account management for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add wallet account management functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 76,
+    "title": "Implement wallet import from seed phrase",
+    "description": "Implement implement wallet import from seed phrase for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement wallet import from seed phrase functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 77,
+    "title": "Create hardware wallet pairing flow",
+    "description": "Implement create hardware wallet pairing flow for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create hardware wallet pairing flow functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 78,
+    "title": "Add wallet address validation",
+    "description": "Implement add wallet address validation for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add wallet address validation functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 79,
+    "title": "Implement public key extraction",
+    "description": "Implement implement public key extraction for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement public key extraction functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 80,
+    "title": "Create wallet permissions system",
+    "description": "Implement create wallet permissions system for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create wallet permissions system functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 81,
+    "title": "Add wallet backup warning",
+    "description": "Implement add wallet backup warning for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add wallet backup warning functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 82,
+    "title": "Implement wallet recovery options",
+    "description": "Implement implement wallet recovery options for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement wallet recovery options functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 83,
+    "title": "Create whitelist/blacklist features",
+    "description": "Implement create whitelist/blacklist features for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create whitelist/blacklist features functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 84,
+    "title": "Add multi-wallet support",
+    "description": "Implement add multi-wallet support for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add multi-wallet support functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 85,
+    "title": "Implement wallet aliases",
+    "description": "Implement implement wallet aliases for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement wallet aliases functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 86,
+    "title": "Create wallet activity timeline",
+    "description": "Implement create wallet activity timeline for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create wallet activity timeline functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 87,
+    "title": "Add wallet statistics dashboard",
+    "description": "Implement add wallet statistics dashboard for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add wallet statistics dashboard functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 88,
+    "title": "Implement spend limits feature",
+    "description": "Implement implement spend limits feature for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement spend limits feature functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 89,
+    "title": "Create wallet notifications",
+    "description": "Implement create wallet notifications for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create wallet notifications functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 90,
+    "title": "Add wallet export functionality",
+    "description": "Implement add wallet export functionality for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add wallet export functionality functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 91,
+    "title": "Implement network selection",
+    "description": "Implement implement network selection for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement network selection functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 92,
+    "title": "Create testnet/mainnet toggle",
+    "description": "Implement create testnet/mainnet toggle for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create testnet/mainnet toggle functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 93,
+    "title": "Add wallet settings management",
+    "description": "Implement add wallet settings management for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add wallet settings management functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 94,
+    "title": "Implement wallet security checklist",
+    "description": "Implement implement wallet security checklist for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement wallet security checklist functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 95,
+    "title": "Create wallet onboarding guide",
+    "description": "Implement create wallet onboarding guide for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create wallet onboarding guide functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 96,
+    "title": "Add wallet state synchronization",
+    "description": "Implement add wallet state synchronization for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add wallet state synchronization functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 97,
+    "title": "Implement wallet caching",
+    "description": "Implement implement wallet caching for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement wallet caching functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 98,
+    "title": "Create offline mode support",
+    "description": "Implement create offline mode support for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create offline mode support functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 99,
+    "title": "Add wallet connection timeout handling",
+    "description": "Implement add wallet connection timeout handling for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add wallet connection timeout handling functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 100,
+    "title": "Implement wallet error recovery",
+    "description": "Implement implement wallet error recovery for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement wallet error recovery functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 101,
+    "title": "Create wallet transaction history",
+    "description": "Implement create wallet transaction history for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create wallet transaction history functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 102,
+    "title": "Add wallet filtering options",
+    "description": "Implement add wallet filtering options for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add wallet filtering options functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 103,
+    "title": "Implement wallet sorting",
+    "description": "Implement implement wallet sorting for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement wallet sorting functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 104,
+    "title": "Create custom gas price settings",
+    "description": "Implement create custom gas price settings for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create custom gas price settings functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 105,
+    "title": "Add memo/note field for transactions",
+    "description": "Implement add memo/note field for transactions for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add memo/note field for transactions functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 106,
+    "title": "Implement wallet activity export",
+    "description": "Implement implement wallet activity export for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement wallet activity export functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 107,
+    "title": "Create wallet sharing (view-only)",
+    "description": "Implement create wallet sharing (view-only) for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create wallet sharing (view-only) functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 108,
+    "title": "Add wallet recommendations",
+    "description": "Implement add wallet recommendations for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add wallet recommendations functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 109,
+    "title": "Implement wallet security audit",
+    "description": "Implement implement wallet security audit for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement wallet security audit functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 110,
+    "title": "Create emergency wallet recovery",
+    "description": "Implement create emergency wallet recovery for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create emergency wallet recovery functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 111,
+    "title": "Add metadata storage for wallets",
+    "description": "Implement add metadata storage for wallets for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add metadata storage for wallets functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 112,
+    "title": "Implement wallet versioning",
+    "description": "Implement implement wallet versioning for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement wallet versioning functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 113,
+    "title": "Create wallet compatibility checker",
+    "description": "Implement create wallet compatibility checker for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create wallet compatibility checker functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 114,
+    "title": "Add wallet upgrade notifications",
+    "description": "Implement add wallet upgrade notifications for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add wallet upgrade notifications functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 115,
+    "title": "Implement wallet auto-connect feature",
+    "description": "Implement implement wallet auto-connect feature for wallet management",
+    "category": "Wallet Integration",
+    "labels": [
+      "frontend",
+      "wallet",
+      "stellar"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement wallet auto-connect feature functionality working",
+      "Tests passing",
+      "No console errors",
+      "Accessibility compliant"
+    ]
+  },
+  {
+    "number": 116,
+    "title": "Implement VaultContract deposit function",
+    "description": "Implement VaultContract deposit function for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement VaultContract deposit function implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 117,
+    "title": "Implement VaultContract withdrawal function",
+    "description": "Implement VaultContract withdrawal function for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement VaultContract withdrawal function implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 118,
+    "title": "Create balance tracking in contracts",
+    "description": "Create balance tracking in contracts for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create balance tracking in contracts implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 119,
+    "title": "Implement share calculation",
+    "description": "Implement share calculation for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement share calculation implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 120,
+    "title": "Add access control to contracts",
+    "description": "Add access control to contracts for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Add access control to contracts implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 121,
+    "title": "Create VaultContract testing suite",
+    "description": "Create VaultContract testing suite for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create VaultContract testing suite implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 122,
+    "title": "Implement TokenContract minting",
+    "description": "Implement TokenContract minting for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement TokenContract minting implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 123,
+    "title": "Implement TokenContract burning",
+    "description": "Implement TokenContract burning for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement TokenContract burning implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 124,
+    "title": "Add token transfer functionality",
+    "description": "Add token transfer functionality for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Add token transfer functionality implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 125,
+    "title": "Create approval system for tokens",
+    "description": "Create approval system for tokens for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create approval system for tokens implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 126,
+    "title": "Implement allowance tracking",
+    "description": "Implement allowance tracking for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement allowance tracking implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 127,
+    "title": "Add TokenContract testing suite",
+    "description": "Add TokenContract testing suite for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Add TokenContract testing suite implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 128,
+    "title": "Create PaymentContract structure",
+    "description": "Create PaymentContract structure for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create PaymentContract structure implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 129,
+    "title": "Implement payment creation",
+    "description": "Implement payment creation for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement payment creation implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 130,
+    "title": "Implement payment execution",
+    "description": "Implement payment execution for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement payment execution implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 131,
+    "title": "Add payment cancellation",
+    "description": "Add payment cancellation for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add payment cancellation implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 132,
+    "title": "Create payment status tracking",
+    "description": "Create payment status tracking for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create payment status tracking implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 133,
+    "title": "Implement payment timeouts",
+    "description": "Implement payment timeouts for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement payment timeouts implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 134,
+    "title": "Add PaymentContract testing suite",
+    "description": "Add PaymentContract testing suite for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add PaymentContract testing suite implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 135,
+    "title": "Create contract initialization logic",
+    "description": "Create contract initialization logic for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create contract initialization logic implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 136,
+    "title": "Implement contract upgrade mechanism",
+    "description": "Implement contract upgrade mechanism for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement contract upgrade mechanism implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 137,
+    "title": "Add event emission for all transactions",
+    "description": "Add event emission for all transactions for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add event emission for all transactions implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 138,
+    "title": "Create contract state serialization",
+    "description": "Create contract state serialization for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create contract state serialization implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 139,
+    "title": "Implement decimal handling",
+    "description": "Implement decimal handling for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement decimal handling implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 140,
+    "title": "Add overflow protection",
+    "description": "Add overflow protection for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add overflow protection implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 141,
+    "title": "Create contract documentation",
+    "description": "Create contract documentation for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create contract documentation implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 142,
+    "title": "Implement contract visibility settings",
+    "description": "Implement contract visibility settings for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement contract visibility settings implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 143,
+    "title": "Add contract pause/unpause functionality",
+    "description": "Add contract pause/unpause functionality for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add contract pause/unpause functionality implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 144,
+    "title": "Create admin role management",
+    "description": "Create admin role management for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create admin role management implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 145,
+    "title": "Implement emergency stop mechanism",
+    "description": "Implement emergency stop mechanism for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement emergency stop mechanism implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 146,
+    "title": "Add contract metrics tracking",
+    "description": "Add contract metrics tracking for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add contract metrics tracking implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 147,
+    "title": "Create contract gas optimization",
+    "description": "Create contract gas optimization for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create contract gas optimization implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 148,
+    "title": "Implement contract batch operations",
+    "description": "Implement contract batch operations for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement contract batch operations implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 149,
+    "title": "Add contract hook system",
+    "description": "Add contract hook system for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add contract hook system implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 150,
+    "title": "Create contract extension points",
+    "description": "Create contract extension points for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create contract extension points implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 151,
+    "title": "Implement contract version management",
+    "description": "Implement contract version management for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement contract version management implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 152,
+    "title": "Add contract compatibility layer",
+    "description": "Add contract compatibility layer for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add contract compatibility layer implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 153,
+    "title": "Create contract migration tools",
+    "description": "Create contract migration tools for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create contract migration tools implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 154,
+    "title": "Implement contract state validation",
+    "description": "Implement contract state validation for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement contract state validation implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 155,
+    "title": "Add contract invariant checks",
+    "description": "Add contract invariant checks for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add contract invariant checks implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 156,
+    "title": "Create contract security audit checklist",
+    "description": "Create contract security audit checklist for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create contract security audit checklist implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 157,
+    "title": "Implement contract rate limiting",
+    "description": "Implement contract rate limiting for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement contract rate limiting implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 158,
+    "title": "Add contract whitelist/blacklist",
+    "description": "Add contract whitelist/blacklist for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Add contract whitelist/blacklist implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 159,
+    "title": "Create contract suspension mechanism",
+    "description": "Create contract suspension mechanism for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create contract suspension mechanism implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 160,
+    "title": "Add contract recovery procedures",
+    "description": "Add contract recovery procedures for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Add contract recovery procedures implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 161,
+    "title": "Implement contract logging",
+    "description": "Implement contract logging for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement contract logging implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 162,
+    "title": "Create contract monitoring system",
+    "description": "Create contract monitoring system for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create contract monitoring system implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 163,
+    "title": "Add contract performance testing",
+    "description": "Add contract performance testing for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Add contract performance testing implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 164,
+    "title": "Implement contract fuzzing tests",
+    "description": "Implement contract fuzzing tests for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement contract fuzzing tests implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 165,
+    "title": "Create contract static analysis",
+    "description": "Create contract static analysis for smart contract functionality",
+    "category": "Smart Contract Development",
+    "labels": [
+      "contracts",
+      "rust",
+      "soroban",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create contract static analysis implemented and tested",
+      "Contract compiles without errors",
+      "Tests passing with 80%+ coverage",
+      "Code reviewed and approved"
+    ]
+  },
+  {
+    "number": 166,
+    "title": "Create User service",
+    "description": "Create User service for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create User service implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 167,
+    "title": "Create Wallet management service",
+    "description": "Create Wallet management service for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create Wallet management service implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 168,
+    "title": "Create Asset tracking service",
+    "description": "Create Asset tracking service for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create Asset tracking service implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 169,
+    "title": "Create Transaction service",
+    "description": "Create Transaction service for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create Transaction service implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 170,
+    "title": "Create Contract interaction service",
+    "description": "Create Contract interaction service for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create Contract interaction service implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 171,
+    "title": "Implement database migrations",
+    "description": "Implement database migrations for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement database migrations implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 172,
+    "title": "Create TypeORM entities",
+    "description": "Create TypeORM entities for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create TypeORM entities implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 173,
+    "title": "Implement error handling middleware",
+    "description": "Implement error handling middleware for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement error handling middleware implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 174,
+    "title": "Create request validation",
+    "description": "Create request validation for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create request validation implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 175,
+    "title": "Implement response formatting",
+    "description": "Implement response formatting for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement response formatting implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 176,
+    "title": "Create pagination system",
+    "description": "Create pagination system for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create pagination system implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 177,
+    "title": "Implement sorting and filtering",
+    "description": "Implement sorting and filtering for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement sorting and filtering implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 178,
+    "title": "Create caching layer",
+    "description": "Create caching layer for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create caching layer implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 179,
+    "title": "Implement cache invalidation",
+    "description": "Implement cache invalidation for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement cache invalidation implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 180,
+    "title": "Create rate limiting middleware",
+    "description": "Create rate limiting middleware for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create rate limiting middleware implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 181,
+    "title": "Implement CORS configuration",
+    "description": "Implement CORS configuration for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement CORS configuration implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 182,
+    "title": "Create security headers middleware",
+    "description": "Create security headers middleware for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create security headers middleware implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 183,
+    "title": "Implement input sanitization",
+    "description": "Implement input sanitization for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement input sanitization implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 184,
+    "title": "Create API documentation",
+    "description": "Create API documentation for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create API documentation implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 185,
+    "title": "Implement API versioning",
+    "description": "Implement API versioning for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement API versioning implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 186,
+    "title": "Create health check endpoint",
+    "description": "Create health check endpoint for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create health check endpoint implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 187,
+    "title": "Implement metrics collection",
+    "description": "Implement metrics collection for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement metrics collection implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 188,
+    "title": "Create logging system",
+    "description": "Create logging system for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create logging system implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 189,
+    "title": "Implement error tracking",
+    "description": "Implement error tracking for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement error tracking implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 190,
+    "title": "Create database connection pooling",
+    "description": "Create database connection pooling for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create database connection pooling implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 191,
+    "title": "Implement database transactions",
+    "description": "Implement database transactions for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement database transactions implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 192,
+    "title": "Create backup system",
+    "description": "Create backup system for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create backup system implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 193,
+    "title": "Implement database monitoring",
+    "description": "Implement database monitoring for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement database monitoring implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 194,
+    "title": "Create seed data scripts",
+    "description": "Create seed data scripts for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create seed data scripts implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 195,
+    "title": "Implement test database setup",
+    "description": "Implement test database setup for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement test database setup implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 196,
+    "title": "Create API integration tests",
+    "description": "Create API integration tests for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create API integration tests implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 197,
+    "title": "Implement end-to-end tests",
+    "description": "Implement end-to-end tests for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement end-to-end tests implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 198,
+    "title": "Create performance benchmarks",
+    "description": "Create performance benchmarks for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create performance benchmarks implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 199,
+    "title": "Implement query optimization",
+    "description": "Implement query optimization for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement query optimization implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 200,
+    "title": "Create index management",
+    "description": "Create index management for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create index management implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 201,
+    "title": "Implement data validation schemas",
+    "description": "Implement data validation schemas for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement data validation schemas implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 202,
+    "title": "Create DTO transformers",
+    "description": "Create DTO transformers for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create DTO transformers implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 203,
+    "title": "Implement request/response compression",
+    "description": "Implement request/response compression for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement request/response compression implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 204,
+    "title": "Create webhook system",
+    "description": "Create webhook system for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create webhook system implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 205,
+    "title": "Implement event bus",
+    "description": "Implement event bus for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement event bus implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 206,
+    "title": "Create task queue",
+    "description": "Create task queue for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create task queue implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 207,
+    "title": "Implement job scheduling",
+    "description": "Implement job scheduling for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement job scheduling implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 208,
+    "title": "Create file upload handling",
+    "description": "Create file upload handling for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create file upload handling implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 209,
+    "title": "Implement file storage",
+    "description": "Implement file storage for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement file storage implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 210,
+    "title": "Create image processing pipeline",
+    "description": "Create image processing pipeline for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create image processing pipeline implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 211,
+    "title": "Implement mail service",
+    "description": "Implement mail service for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement mail service implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 212,
+    "title": "Create notification queue",
+    "description": "Create notification queue for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create notification queue implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 213,
+    "title": "Implement external API integrations",
+    "description": "Implement external API integrations for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement external API integrations implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 214,
+    "title": "Create SDK for API consumers",
+    "description": "Create SDK for API consumers for backend API",
+    "category": "Backend API",
+    "labels": [
+      "backend",
+      "nestjs",
+      "api"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create SDK for API consumers implemented",
+      "Unit tests passing",
+      "Integration tests passing",
+      "Code review approved"
+    ]
+  },
+  {
+    "number": 215,
+    "title": "Create application shell layout",
+    "description": "Create application shell layout for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create application shell layout implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 216,
+    "title": "Implement navigation menu",
+    "description": "Implement navigation menu for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement navigation menu implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 217,
+    "title": "Create dashboard page",
+    "description": "Create dashboard page for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create dashboard page implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 218,
+    "title": "Implement wallet selector",
+    "description": "Implement wallet selector for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement wallet selector implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 219,
+    "title": "Create asset list view",
+    "description": "Create asset list view for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create asset list view implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 220,
+    "title": "Implement asset detail page",
+    "description": "Implement asset detail page for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement asset detail page implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 221,
+    "title": "Create transaction form",
+    "description": "Create transaction form for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create transaction form implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 222,
+    "title": "Implement transaction history",
+    "description": "Implement transaction history for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement transaction history implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 223,
+    "title": "Create user profile page",
+    "description": "Create user profile page for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create user profile page implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 224,
+    "title": "Implement settings page",
+    "description": "Implement settings page for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement settings page implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 225,
+    "title": "Create authentication forms",
+    "description": "Create authentication forms for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create authentication forms implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 226,
+    "title": "Implement loading states",
+    "description": "Implement loading states for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement loading states implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 227,
+    "title": "Create error boundaries",
+    "description": "Create error boundaries for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create error boundaries implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 228,
+    "title": "Implement error messages",
+    "description": "Implement error messages for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement error messages implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 229,
+    "title": "Create toast notifications",
+    "description": "Create toast notifications for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create toast notifications implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 230,
+    "title": "Implement modal dialogs",
+    "description": "Implement modal dialogs for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement modal dialogs implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 231,
+    "title": "Create form components",
+    "description": "Create form components for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create form components implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 232,
+    "title": "Implement form validation",
+    "description": "Implement form validation for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement form validation implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 233,
+    "title": "Create tables with sorting",
+    "description": "Create tables with sorting for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create tables with sorting implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 234,
+    "title": "Implement data pagination",
+    "description": "Implement data pagination for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement data pagination implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 235,
+    "title": "Create charts and graphs",
+    "description": "Create charts and graphs for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create charts and graphs implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 236,
+    "title": "Implement responsive design",
+    "description": "Implement responsive design for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement responsive design implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 237,
+    "title": "Create mobile navigation",
+    "description": "Create mobile navigation for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create mobile navigation implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 238,
+    "title": "Implement dark/light theme",
+    "description": "Implement dark/light theme for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement dark/light theme implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 239,
+    "title": "Create accessibility compliance",
+    "description": "Create accessibility compliance for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create accessibility compliance implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 240,
+    "title": "Implement keyboard navigation",
+    "description": "Implement keyboard navigation for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement keyboard navigation implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 241,
+    "title": "Create color scheme",
+    "description": "Create color scheme for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create color scheme implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 242,
+    "title": "Implement typography system",
+    "description": "Implement typography system for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement typography system implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 243,
+    "title": "Create spacing system",
+    "description": "Create spacing system for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create spacing system implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 244,
+    "title": "Implement component library",
+    "description": "Implement component library for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement component library implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 245,
+    "title": "Create Storybook setup",
+    "description": "Create Storybook setup for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create Storybook setup implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 246,
+    "title": "Implement UI testing",
+    "description": "Implement UI testing for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement UI testing implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 247,
+    "title": "Create visual regression tests",
+    "description": "Create visual regression tests for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create visual regression tests implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 248,
+    "title": "Implement animation system",
+    "description": "Implement animation system for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement animation system implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 249,
+    "title": "Create transition effects",
+    "description": "Create transition effects for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create transition effects implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 250,
+    "title": "Implement skeleton loaders",
+    "description": "Implement skeleton loaders for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement skeleton loaders implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 251,
+    "title": "Create empty states",
+    "description": "Create empty states for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create empty states implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 252,
+    "title": "Implement error screens",
+    "description": "Implement error screens for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement error screens implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 253,
+    "title": "Create success screens",
+    "description": "Create success screens for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create success screens implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 254,
+    "title": "Implement onboarding flow",
+    "description": "Implement onboarding flow for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement onboarding flow implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 255,
+    "title": "Create tutorial system",
+    "description": "Create tutorial system for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create tutorial system implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 256,
+    "title": "Implement help documentation",
+    "description": "Implement help documentation for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement help documentation implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 257,
+    "title": "Create search functionality",
+    "description": "Create search functionality for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create search functionality implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 258,
+    "title": "Implement filters",
+    "description": "Implement filters for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement filters implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 259,
+    "title": "Create preferences UI",
+    "description": "Create preferences UI for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create preferences UI implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 260,
+    "title": "Implement activity feed",
+    "description": "Implement activity feed for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement activity feed implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 261,
+    "title": "Create notifications center",
+    "description": "Create notifications center for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create notifications center implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 262,
+    "title": "Implement breadcrumbs",
+    "description": "Implement breadcrumbs for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement breadcrumbs implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 263,
+    "title": "Create footer component",
+    "description": "Create footer component for frontend application",
+    "category": "Frontend UI/UX",
+    "labels": [
+      "frontend",
+      "ui",
+      "nextjs",
+      "react"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create footer component implemented",
+      "Styling complete",
+      "Responsive design working",
+      "Accessibility verified"
+    ]
+  },
+  {
+    "number": 264,
+    "title": "Setup Jest for unit tests",
+    "description": "Setup Jest for unit tests for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Setup Jest for unit tests configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 265,
+    "title": "Setup Vitest for integration tests",
+    "description": "Setup Vitest for integration tests for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Setup Vitest for integration tests configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 266,
+    "title": "Setup Cypress for E2E tests",
+    "description": "Setup Cypress for E2E tests for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Setup Cypress for E2E tests configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 267,
+    "title": "Create unit test templates",
+    "description": "Create unit test templates for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create unit test templates configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 268,
+    "title": "Implement test coverage reporting",
+    "description": "Implement test coverage reporting for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement test coverage reporting configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 269,
+    "title": "Create test data factories",
+    "description": "Create test data factories for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create test data factories configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 270,
+    "title": "Setup test database",
+    "description": "Setup test database for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Setup test database configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 271,
+    "title": "Implement test utilities",
+    "description": "Implement test utilities for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement test utilities configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 272,
+    "title": "Create snapshot tests",
+    "description": "Create snapshot tests for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create snapshot tests configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 273,
+    "title": "Implement performance tests",
+    "description": "Implement performance tests for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement performance tests configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 274,
+    "title": "Create accessibility tests",
+    "description": "Create accessibility tests for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create accessibility tests configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 275,
+    "title": "Implement security tests",
+    "description": "Implement security tests for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement security tests configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 276,
+    "title": "Create API contract tests",
+    "description": "Create API contract tests for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create API contract tests configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 277,
+    "title": "Implement load testing",
+    "description": "Implement load testing for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement load testing configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 278,
+    "title": "Create stress testing suite",
+    "description": "Create stress testing suite for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create stress testing suite configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 279,
+    "title": "Implement continuous testing",
+    "description": "Implement continuous testing for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement continuous testing configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 280,
+    "title": "Create test documentation",
+    "description": "Create test documentation for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create test documentation configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 281,
+    "title": "Implement test CI/CD integration",
+    "description": "Implement test CI/CD integration for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement test CI/CD integration configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 282,
+    "title": "Create test result reporting",
+    "description": "Create test result reporting for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create test result reporting configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 283,
+    "title": "Implement flaky test detection",
+    "description": "Implement flaky test detection for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement flaky test detection configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 284,
+    "title": "Create mutation testing",
+    "description": "Create mutation testing for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create mutation testing configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 285,
+    "title": "Implement code coverage targets",
+    "description": "Implement code coverage targets for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement code coverage targets configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 286,
+    "title": "Create integration test suite",
+    "description": "Create integration test suite for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create integration test suite configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 287,
+    "title": "Implement contract testing",
+    "description": "Implement contract testing for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement contract testing configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 288,
+    "title": "Create visual testing",
+    "description": "Create visual testing for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create visual testing configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 289,
+    "title": "Implement performance profiling",
+    "description": "Implement performance profiling for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement performance profiling configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 290,
+    "title": "Create memory leak detection",
+    "description": "Create memory leak detection for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create memory leak detection configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 291,
+    "title": "Implement test monitoring",
+    "description": "Implement test monitoring for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement test monitoring configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 292,
+    "title": "Create test analytics",
+    "description": "Create test analytics for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create test analytics configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 293,
+    "title": "Implement test optimization",
+    "description": "Implement test optimization for quality assurance",
+    "category": "Testing & Quality",
+    "labels": [
+      "testing",
+      "quality",
+      "devops"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement test optimization configured",
+      "Tests running successfully",
+      "Results being tracked",
+      "Team trained on usage"
+    ]
+  },
+  {
+    "number": 294,
+    "title": "Implement payment creation",
+    "description": "Implement payment creation for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement payment creation implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 295,
+    "title": "Create payment execution",
+    "description": "Create payment execution for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create payment execution implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 296,
+    "title": "Implement payment verification",
+    "description": "Implement payment verification for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement payment verification implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 297,
+    "title": "Create transaction validation",
+    "description": "Create transaction validation for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create transaction validation implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 298,
+    "title": "Implement transaction signing",
+    "description": "Implement transaction signing for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement transaction signing implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 299,
+    "title": "Create transaction broadcasting",
+    "description": "Create transaction broadcasting for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create transaction broadcasting implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 300,
+    "title": "Implement transaction tracking",
+    "description": "Implement transaction tracking for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement transaction tracking implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 301,
+    "title": "Create transaction retry logic",
+    "description": "Create transaction retry logic for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create transaction retry logic implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 302,
+    "title": "Implement payment confirmation",
+    "description": "Implement payment confirmation for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement payment confirmation implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 303,
+    "title": "Create payment webhooks",
+    "description": "Create payment webhooks for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create payment webhooks implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 304,
+    "title": "Implement refund system",
+    "description": "Implement refund system for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement refund system implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 305,
+    "title": "Create dispute handling",
+    "description": "Create dispute handling for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create dispute handling implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 306,
+    "title": "Implement payment reversal",
+    "description": "Implement payment reversal for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement payment reversal implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 307,
+    "title": "Create transaction fees",
+    "description": "Create transaction fees for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create transaction fees implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 308,
+    "title": "Implement fee calculation",
+    "description": "Implement fee calculation for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement fee calculation implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 309,
+    "title": "Create price feed integration",
+    "description": "Create price feed integration for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create price feed integration implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 310,
+    "title": "Implement currency conversion",
+    "description": "Implement currency conversion for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement currency conversion implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 311,
+    "title": "Create multi-asset support",
+    "description": "Create multi-asset support for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create multi-asset support implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 312,
+    "title": "Implement batch payments",
+    "description": "Implement batch payments for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement batch payments implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 313,
+    "title": "Create scheduled payments",
+    "description": "Create scheduled payments for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create scheduled payments implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 314,
+    "title": "Implement recurring payments",
+    "description": "Implement recurring payments for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement recurring payments implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 315,
+    "title": "Create invoice system",
+    "description": "Create invoice system for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create invoice system implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 316,
+    "title": "Implement invoice tracking",
+    "description": "Implement invoice tracking for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement invoice tracking implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 317,
+    "title": "Create receipt generation",
+    "description": "Create receipt generation for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create receipt generation implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 318,
+    "title": "Implement transaction receipts",
+    "description": "Implement transaction receipts for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement transaction receipts implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 319,
+    "title": "Create tax reporting",
+    "description": "Create tax reporting for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create tax reporting implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 320,
+    "title": "Implement AML compliance",
+    "description": "Implement AML compliance for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement AML compliance implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 321,
+    "title": "Create KYC integration",
+    "description": "Create KYC integration for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create KYC integration implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 322,
+    "title": "Implement transaction limits",
+    "description": "Implement transaction limits for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement transaction limits implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 323,
+    "title": "Create fraud detection system",
+    "description": "Create fraud detection system for payment processing",
+    "category": "Payments & Transactions",
+    "labels": [
+      "payments",
+      "transactions",
+      "backend"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create fraud detection system implemented and tested",
+      "Integration with Stellar working",
+      "All tests passing",
+      "Documentation updated"
+    ]
+  },
+  {
+    "number": 324,
+    "title": "Implement email notification system",
+    "description": "Implement email notification system for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement email notification system implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 325,
+    "title": "Create push notification system",
+    "description": "Create push notification system for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create push notification system implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 326,
+    "title": "Implement in-app notifications",
+    "description": "Implement in-app notifications for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement in-app notifications implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 327,
+    "title": "Create notification templating",
+    "description": "Create notification templating for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "high",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create notification templating implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 328,
+    "title": "Implement email templates",
+    "description": "Implement email templates for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "high",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement email templates implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 329,
+    "title": "Create notification preferences",
+    "description": "Create notification preferences for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create notification preferences implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 330,
+    "title": "Implement notification scheduling",
+    "description": "Implement notification scheduling for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement notification scheduling implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 331,
+    "title": "Create notification history",
+    "description": "Create notification history for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create notification history implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 332,
+    "title": "Implement webhook notifications",
+    "description": "Implement webhook notifications for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement webhook notifications implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 333,
+    "title": "Create SMS notifications",
+    "description": "Create SMS notifications for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "medium",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create SMS notifications implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 334,
+    "title": "Implement notification routing",
+    "description": "Implement notification routing for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "medium",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement notification routing implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 335,
+    "title": "Create notification deduplication",
+    "description": "Create notification deduplication for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create notification deduplication implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 336,
+    "title": "Implement notification expiration",
+    "description": "Implement notification expiration for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement notification expiration implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 337,
+    "title": "Create notification testing",
+    "description": "Create notification testing for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create notification testing implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 338,
+    "title": "Implement notification monitoring",
+    "description": "Implement notification monitoring for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement notification monitoring implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 339,
+    "title": "Create notification analytics",
+    "description": "Create notification analytics for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Create notification analytics implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 340,
+    "title": "Implement unsub scribe links",
+    "description": "Implement unsub scribe links for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Implement unsub scribe links implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 341,
+    "title": "Create notification retry logic",
+    "description": "Create notification retry logic for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create notification retry logic implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 342,
+    "title": "Implement notification rate limiting",
+    "description": "Implement notification rate limiting for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "low",
+    "effort": "small",
+    "acceptance_criteria": [
+      "Implement notification rate limiting implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 343,
+    "title": "Create notification dashboard",
+    "description": "Create notification dashboard for user communication",
+    "category": "Notifications",
+    "labels": [
+      "notifications",
+      "backend",
+      "communications"
+    ],
+    "priority": "low",
+    "effort": "medium",
+    "acceptance_criteria": [
+      "Create notification dashboard implemented",
+      "Integration tested",
+      "Delivery confirmed",
+      "Performance optimized"
+    ]
+  },
+  {
+    "number": 344,
+    "title": "Setup Kubernetes deployment",
+    "description": "Setup Kubernetes deployment for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Setup Kubernetes deployment implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 345,
+    "title": "Configure Helm charts",
+    "description": "Configure Helm charts for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Configure Helm charts implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 346,
+    "title": "Implement auto-scaling",
+    "description": "Implement auto-scaling for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement auto-scaling implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 347,
+    "title": "Create load balancer setup",
+    "description": "Create load balancer setup for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create load balancer setup implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 348,
+    "title": "Implement health checks",
+    "description": "Implement health checks for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "high",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement health checks implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 349,
+    "title": "Create monitoring dashboard",
+    "description": "Create monitoring dashboard for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create monitoring dashboard implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 350,
+    "title": "Setup alerting system",
+    "description": "Setup alerting system for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Setup alerting system implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 351,
+    "title": "Implement log aggregation",
+    "description": "Implement log aggregation for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement log aggregation implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 352,
+    "title": "Create incident response automation",
+    "description": "Create incident response automation for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create incident response automation implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 353,
+    "title": "Implement blue-green deployment",
+    "description": "Implement blue-green deployment for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "medium",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement blue-green deployment implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 354,
+    "title": "Create rollback procedures",
+    "description": "Create rollback procedures for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create rollback procedures implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 355,
+    "title": "Setup infrastructure as code",
+    "description": "Setup infrastructure as code for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Setup infrastructure as code implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 356,
+    "title": "Implement configuration management",
+    "description": "Implement configuration management for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Implement configuration management implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 357,
+    "title": "Create cost optimization",
+    "description": "Create cost optimization for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Create cost optimization implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  },
+  {
+    "number": 358,
+    "title": "Setup disaster recovery",
+    "description": "Setup disaster recovery for production environment",
+    "category": "Deployment & Operations",
+    "labels": [
+      "devops",
+      "deployment",
+      "operations"
+    ],
+    "priority": "low",
+    "effort": "large",
+    "acceptance_criteria": [
+      "Setup disaster recovery implemented",
+      "Tested in staging",
+      "Production ready",
+      "Team trained"
+    ]
+  }
+]
